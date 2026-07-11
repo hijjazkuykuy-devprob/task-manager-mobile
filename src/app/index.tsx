@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function HomeScreen() {
   const [tasks, setTasks] = useState([
@@ -82,9 +83,13 @@ export default function HomeScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.container}>
-        <View style={styles.header}>
+    <LinearGradient
+      colors={['#4f46e5', '#a855f7', '#ec4899']}
+      style={styles.gradientBg}
+    >
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.container}>
+          <View style={styles.header}>
           <Text style={styles.headerTitle}>Task Manager</Text>
           <Text style={styles.headerSubtitle}>Kelola tugas harianmu dengan mudah</Text>
         </View>
@@ -179,14 +184,17 @@ export default function HomeScreen() {
 
         <StatusBar style="dark" />
       </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
+  gradientBg: {
+    flex: 1,
+  },
   safeArea: {
     flex: 1,
-    backgroundColor: '#0f172a',
   },
   container: {
     flex: 1,
